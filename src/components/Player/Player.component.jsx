@@ -1,21 +1,21 @@
-// import React from "react";
-// import './Player.component.css';
+import React from "react";
+import './Player.component.css';
 
-// class Player extends React.Component {
-	// constructor () {
-	// 	super();
-	// 	this.state = {
+class Player extends React.Component {
+	constructor () {
+		super();
+		this.state = {
 			
-	// 	}
-	// }
+		}
+	}
 
-// 	render () {
-// 		return (
-// 			<div className="">
+	render () {
+		return (
+			<div className="">
 				
-// 			</div>
-// 		);
-// 	}
-// }
+			</div>
+		);
+	}
+}
 
-// export default Player;
+export default Player;
