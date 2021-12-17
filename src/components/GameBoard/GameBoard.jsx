@@ -25,11 +25,12 @@ class GameBoard extends React.Component {
 				<button 
 					className="game-board-new-game-btn"
 					onClick={this.props.onClick}
+					value="new"
 				>
 					Start New Game
 				</button>
 				<div className="game-board-dices-wrapper">
-					<img 
+					{/* <img 
 						className="game-board-dice"
 						src={this.diceImages[this.state.dices[0]]} 
 						alt="Score on dice" 
@@ -38,7 +39,7 @@ class GameBoard extends React.Component {
 						className="game-board-dice"
 						src={this.diceImages[this.state.dices[1]]} 
 						alt="Score on dice" 
-					/>
+					/> */}
 					<div>{this.state.dices[0]}</div>
 					<div>{this.state.dices[1]}</div>
 				</div>
@@ -46,12 +47,14 @@ class GameBoard extends React.Component {
 					<button 
 						className="game-board-roll-btn"
 						onClick={this.props.onClick}
+						value="roll"
 					>
 						Roll Dices
 					</button>
 					<button 
 						className="game-board-hold-btn"
 						onClick={this.props.onClick}
+						value="hold"
 					>
 						Hold Your Turn
 					</button>
