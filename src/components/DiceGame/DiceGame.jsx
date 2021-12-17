@@ -3,6 +3,7 @@ import './styles/Normalize.css';
 import './styles/DiceGameDesktop.css';
 import './styles/DiceGameMobile.css';
 import Player from "../Player/Player.component";
+import GameBoard from "../GameBoard/GameBoard";
 
 
 class DiceGame extends React.Component {
@@ -10,7 +11,8 @@ class DiceGame extends React.Component {
 		super();
 		this.state = {
 			pointsToWin: 100,
-			dices: [null, null],
+			// dices: [null, null],
+			dices: [5, 1],
 			gameOver: false,
 			players: [
 				{
@@ -46,10 +48,12 @@ class DiceGame extends React.Component {
 					isActive={this.state.players[0].isActive}
 					isWinner={this.state.players[0].isWinner}
 					playerColor={this.state.players[0].playerColor}
-				>
-				</Player>
-
-				
+				/>
+				<GameBoard
+					dices={this.state.dices}
+					pointsToWin={this.state.pointsToWin}
+					onClick={this.onClick}
+				/>
 			</div>
 		);
 	}
