@@ -14,7 +14,7 @@ class Player extends React.Component {
 		}
 	}
 
-	playerStatusText = (use) => {
+	playerStatus = (use) => {
 		if (this.state.isActive) {
 			return (
 				use === "text" 
@@ -36,10 +36,11 @@ class Player extends React.Component {
 	render () {
 		return (
 			<section className="player-container">
+				hello from player
 				<div 
 					className="player-name" 
 					style={
-						`backgroundColor: ${this.state.playerColor}`
+						{backgroundColor: this.state.playerColor}
 					}
 				>
 					{this.state.playerName}
@@ -47,21 +48,31 @@ class Player extends React.Component {
 				<div className={this.playerStatus("style")}>
 					{this.playerStatus("text")}
 				</div>
-				<div 
-					className="player-game-score"
-					style={
-						`backgroundColor: ${this.state.playerColor}`
-					}
-				>
-					{this.state.gameScore}
+				<div className="player-game-score-wrapper">
+					<div className="player-game-score-header">
+						SCORE
+					</div>
+					<div 
+						className="player-game-score"
+						style={
+							{backgroundColor: this.state.playerColor}
+						}
+					>
+						{this.state.gameScore}
+					</div>
 				</div>
-				<div 
-					className="player-round-score"
-					style={
-						`backgroundColor: ${this.state.playerColor}`
-					}
-				>
-					{this.state.roundScore}
+				<div className="player-round-score-wrapper">
+					<div className="player-round-score-header">
+						ROUND SCORE
+					</div>
+					<div 
+						className="player-round-score"
+						style={
+							{backgroundColor: this.state.playerColor}
+						}
+					>
+						{this.state.roundScore}
+					</div>
 				</div>
 			</section>
 		);

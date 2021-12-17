@@ -12,10 +12,10 @@ class DiceGame extends React.Component {
 			pointsToWin: 100,
 			dices: [null, null],
 			gameOver: false,
-			Players: [
+			players: [
 				{
-					Id: 1,
-					name: 'player-1',
+					id: 1,
+					playerName: 'player-1',
 					color: '',
 					roundScore: 0,
 					gameScore: 0,
@@ -23,7 +23,7 @@ class DiceGame extends React.Component {
 					isWinner: false
 				},
 				{
-					Id: 2,
+					id: 2,
 					playerName: 'player-2',
 					color: '',
 					roundScore: 0,
@@ -38,16 +38,18 @@ class DiceGame extends React.Component {
 	render () {
 		return (
 			<div className="">
+				Hello from Dice Game
 				<Player
-					playerName={this.state.playerName}
-					roundScore={this.state.roundScore}
-					gameScore={this.state.gameScore}
-					isActive={this.state.isActive}
-					isWinner={this.state.isWinner}
-					playerColor={this.state.playerColor}
+					playerName={this.state.players[0].playerName}
+					roundScore={this.state.players[0].roundScore}
+					gameScore={this.state.players[0].gameScore}
+					isActive={this.state.players[0].isActive}
+					isWinner={this.state.players[0].isWinner}
+					playerColor={this.state.players[0].playerColor}
 				>
 				</Player>
-				Hello from Dice Game
+
+				
 			</div>
 		);
 	}
