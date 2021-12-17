@@ -14,11 +14,56 @@ class Player extends React.Component {
 		}
 	}
 
+	playerStatusText = (use) => {
+		if (this.state.isActive) {
+			return (
+				use === "text" 
+					? 'Your turn!'
+					: 'player-active'
+			);
+		};
+		if (this.state.isWinner) {
+			return (
+				use === "text" 
+					? 'WINNER!!!'
+					: "player-winner"
+			);
+		};
+
+		return '';
+	}
+
 	render () {
 		return (
-			<div className="">
-				
-			</div>
+			<section className="player-container">
+				<div 
+					className="player-name" 
+					style={
+						`backgroundColor: ${this.state.playerColor}`
+					}
+				>
+					{this.state.playerName}
+				</div>
+				<div className={this.playerStatus("style")}>
+					{this.playerStatus("text")}
+				</div>
+				<div 
+					className="player-game-score"
+					style={
+						`backgroundColor: ${this.state.playerColor}`
+					}
+				>
+					{this.state.gameScore}
+				</div>
+				<div 
+					className="player-round-score"
+					style={
+						`backgroundColor: ${this.state.playerColor}`
+					}
+				>
+					{this.state.roundScore}
+				</div>
+			</section>
 		);
 	}
 }
