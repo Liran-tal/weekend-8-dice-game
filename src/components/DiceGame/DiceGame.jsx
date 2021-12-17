@@ -24,7 +24,7 @@ class DiceGame extends React.Component {
 				},
 				{
 					Id: 2,
-					name: 'player-2',
+					playerName: 'player-2',
 					color: '',
 					roundScore: 0,
 					gameScore: 0,
@@ -39,7 +39,7 @@ class DiceGame extends React.Component {
 		return (
 			<div className="">
 				<Player
-					playerName={this.state.name}
+					playerName={this.state.playerName}
 					roundScore={this.state.roundScore}
 					gameScore={this.state.gameScore}
 					isActive={this.state.isActive}
