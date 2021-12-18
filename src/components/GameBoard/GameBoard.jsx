@@ -1,5 +1,6 @@
 import React from "react";
-import './GameBoard.css';
+import './GameBoardDesktop.css';
+import './GameBoardMobile.css';
 import dice1 from "../../assets/images/dice/dice-1.png";
 import dice2 from "../../assets/images/dice/dice-2.png";
 import dice3 from "../../assets/images/dice/dice-3.png";

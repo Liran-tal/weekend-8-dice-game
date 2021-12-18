@@ -1,7 +1,15 @@
 @media screen and (max-width: 760px) {
 	.game-container{
 		font-size: 16px;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 
-	
+	.game-container Player {
+		order: 1;
+	}
+
+	.game-container GameBoard {
+		order: 2;
+	}
 }
