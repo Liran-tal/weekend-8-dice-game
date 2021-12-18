@@ -4,25 +4,17 @@ import './Player.component.css';
 class Player extends React.Component {
 	constructor (props) {
 		super(props);
-		this.state = {
-			playerName: this.props.playerName,
-			roundScore: this.props.roundScore,
-			gameScore: this.props.gameScore,
-			isActive: this.props.isActive,
-			isWinner: this.props.isWinner,
-			playerColor: this.props.playerColor,
-		}
 	}
 
 	playerStatus = (use) => {
-		if (this.state.isActive) {
+		if (this.props.data.isActive) {
 			return (
 				use === "text" 
 					? 'Your turn!'
 					: 'player-active'
 			);
 		};
-		if (this.state.isWinner) {
+		if (this.props.data.isWinner) {
 			return (
 				use === "text" 
 					? 'WINNER!!!'
@@ -34,16 +26,17 @@ class Player extends React.Component {
 	}
 
 	render () {
+		console.log("player props: ", props);
 		return (
 			<section className="player-container">
 				hello from player
 				<div 
 					className="player-name" 
 					style={
-						{backgroundColor: this.state.playerColor}
+						{backgroundColor: this.props.data.playerColor}
 					}
 				>
-					{this.state.playerName}
+					{this.props.data.playerName}
 				</div>
 				<div className={this.playerStatus("style")}>
 					{this.playerStatus("text")}
@@ -55,10 +48,10 @@ class Player extends React.Component {
 					<div 
 						className="player-game-score"
 						style={
-							{backgroundColor: this.state.playerColor}
+							{backgroundColor: this.props.data.playerColor}
 						}
 					>
-						{this.state.gameScore}
+						{`${this.props.data.gameScore} \n\n [${this.props.data.combinedScore}]`}
 					</div>
 				</div>
 				<div className="player-round-score-wrapper">
@@ -68,11 +61,11 @@ class Player extends React.Component {
 					<div 
 						className="player-round-score"
 						style={
-							{backgroundColor: this.state.playerColor}
+							{backgroundColor: this.props.data.playerColor}
 						}
-					>
-						{this.state.roundScore}
+						>
 					</div>
+						{this.props.data.roundScore}
 				</div>
 			</section>
 		);

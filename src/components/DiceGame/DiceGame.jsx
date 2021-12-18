@@ -11,21 +11,19 @@ class DiceGame extends React.Component {
 		super();
 		this.state = {
 			pointsToWin: 100,
-			dices: [null, null],
+			dices: [5, 5],
 			gameOver: false,
-			players: [
-				{
-					id: 0,
+			players: {
+				player1: {
 					playerName: 'player-1',
-					color: '',
-					roundScore: 0,
-					gameScore: 0,
+					playerColor: '',
+					roundScore: 50,
+					gameScore: 10,
 					combinedScore: 0,
 					isActive: true,
 					isWinner: false
 				},
-				{
-					id: 1,
+				player2: {
 					playerName: 'player-2',
 					color: '',
 					roundScore: 0,
@@ -34,7 +32,7 @@ class DiceGame extends React.Component {
 					isActive: false,
 					isWinner: false
 				}
-			]
+			}
 		}
 	}
 	
@@ -43,12 +41,7 @@ class DiceGame extends React.Component {
 			<div className="">
 				Hello from Dice Game
 				<Player
-					playerName={this.state.players[0].playerName}
-					roundScore={this.state.players[0].roundScore}
-					gameScore={this.state.players[0].gameScore}
-					isActive={this.state.players[0].isActive}
-					isWinner={this.state.players[0].isWinner}
-					playerColor={this.state.players[0].playerColor}
+					data={this.state.players.player1}
 					/>
 				<GameBoard
 					dices={this.state.dices}
@@ -60,61 +53,67 @@ class DiceGame extends React.Component {
 	}
 	
 	onClick = ({target}) => {
+		console.log(target);
 		switch (target.value) {
 			case 'new':
 				this.startNewGame();
 				break;
 			case 'roll':
 				this.rollDices();
-				break;
+				if ((this.state.dices[0] + this.state.dices[1]) !== 7) {
+					break;
+				}
+				else {
+					this.setState({roundScore: 0});
+				}
 			case 'hold':
 				this.holdTurn();
+				break;
+			default:
 				break;
 		}
 	}
 
 	startNewGame = () => {
-		this.setState({
-			pointsToWin: 100,
+		console.log("hello from new");
+		this.setState((prevState) => ({
 			dices: [null, null],
 			gameOver: false,
-			players: [
-				{
-					id: 1,
+			
+			players: {
+				...prevState.players,
+				player1: {
+					...prevState.players.player1,
 					roundScore: 0,
 					gameScore: 0,
 					isActive: true,
 					isWinner: false
 				},
-				{
-					id: 2,
+				player1: {
+					...prevState.players.player2,
 					roundScore: 0,
 					gameScore: 0,
 					isActive: false,
 					isWinner: false
 				}
-			]
-		})
+			}
+		}), () => console.log(this.state))
+		// return	this.setState({dices: [1, 1]}, () => console.log(this.state));
 	}
 
-	rollDices = () => {
-		const combined_score = 0;
-		// Try foreach once, if doesnt work, change to regular setState
-		this.setState((prev) => {
-			return this.prev.dices.forEach((dice) => {
-				prev.dice = Math.floor(Math.random * 6);
-				combined_score += prev.dice;
-			})
-		})
-
-		this.setState((prev) => {
-			const active = this.prev.players.find((player) => {
-				return player.isActive;
-			})
+	// rollDices = () => {
+	// 	this.setState((prev) => {
+	// 		prev.dices[0] = Math.floor(Math.random * 6)
+	// 		prev.dices[1] = Math.floor(Math.random * 6)
+	// 		if ((prev.dices[0] + prev.dices[1]) !== 7) {
+	// 			const active = this.prev.players.find((player) => {
+	// 				return player.isActive;
+	// 			})
 				
-				return active.combinedScore = combined_score;
-		})
-	}
+	// 		}
+			
+	// 	})
+// 	}
 }
 
 export default DiceGame;

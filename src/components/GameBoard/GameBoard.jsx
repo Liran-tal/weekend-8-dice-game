@@ -4,10 +4,6 @@ import './GameBoard.css';
 class GameBoard extends React.Component {
 	constructor (props) {
 		super(props);
-		this.state = {
-			dices: this.props.dices,
-			pointsToWin: this.props.pointsToWin
-		}
 	}
 
 	diceImages = [
@@ -19,6 +15,7 @@ class GameBoard extends React.Component {
 		"../../assets/images/dice/dice-6.png",
 	]
 	render () {
+		console.log("gameboard props: ", props);
 		return (
 			<section className="game-board-container">
 				Hello from game board
@@ -32,16 +29,16 @@ class GameBoard extends React.Component {
 				<div className="game-board-dices-wrapper">
 					{/* <img 
 						className="game-board-dice"
-						src={this.diceImages[this.state.dices[0]]} 
+						src={this.diceImages[this.props.dices[0]]} 
 						alt="Score on dice" 
 					/>
 					<img 
 						className="game-board-dice"
-						src={this.diceImages[this.state.dices[1]]} 
+						src={this.diceImages[this.props.dices[1]]} 
 						alt="Score on dice" 
 					/> */}
-					<div>{this.state.dices[0]}</div>
-					<div>{this.state.dices[1]}</div>
+					<div>{this.props.dices[0]}</div>
+					<div>{this.props.dices[1]}</div>
 				</div>
 				<div className="game-board-func-btns-wrapper">
 					<button 
@@ -61,7 +58,7 @@ class GameBoard extends React.Component {
 				</div>
 				<div className="game-board-points-to-win-wrapper">
 					<div className="game-board-points-to-win-text">
-						{this.state.pointsToWin}
+						{this.props.pointsToWin}
 					</div>
 					<div className="game-board-points-to-win-header">
 						Points to Win
