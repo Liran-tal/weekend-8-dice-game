@@ -13,8 +13,9 @@ class DiceGame extends React.Component {
 		this.state = {
 			pointsToWin: 100,
 			dices: [5, 5],
-			gameOver: false,
+			buttonDisabled: false,
 			activePlayer: 'player1',
+			idlePlayer: 'player2',
 			players: {
 				player1: {
 					id: 1,
@@ -105,16 +106,15 @@ class DiceGame extends React.Component {
 		const dice2 = Math.floor(Math.random() * 6 + 1);
 		const diceSum = dice1 + dice2;
 		const newRoundScore = this.state.players[activePlayer].roundScore + diceSum;
+		const gameScore = this.state.players[activePlayer].gameScore;
 
+		// ******************************************
 		console.log("dice1: ", dice1);
 		console.log("dice2: ", dice2);
 		console.log("diceSum: ", diceSum);
 		console.log("roundScore: ", this.state.players[activePlayer].roundScore);
 		console.log("newRoundScore: ", newRoundScore);
-
-
-
-
+// *********************************************
 		this.setState({dices: [dice1 - 1, dice2 - 1]});
 		
 		if ((diceSum) === 7) {
@@ -122,7 +122,7 @@ class DiceGame extends React.Component {
 				players: {
 					...prevState.players,
 					[activePlayer]: {
-						...prevState[activePlayer],
+						...prevState.players[activePlayer],
 						roundScore: 0
 					}
 				}
@@ -133,13 +133,64 @@ class DiceGame extends React.Component {
 				players: {
 					...prevState.players,
 					[activePlayer]: {
-						...prevState[activePlayer],
-						roundScore: newRoundScore
+						...prevState.players[activePlayer],
+						roundScore: newRoundScore,
+						combinedScore: newRoundScore + gameScore
 					}
 				}
 			}))
 		}
 	}
+
+	holdTurn = () => {
+		const activePlayer = this.state.activePlayer;
+		const roundScore = this.state.players[activePlayer].roundScore;
+		const gameScore = this.state.players[activePlayer].gameScore;
+		const total = roundScore + gameScore;
+		console.log("active player: ", activePlayer);
+		console.log(this.state.players[activePlayer]);
+		console.log("round score: ", roundScore);
+		console.log("game score: ", gameScore);
+		console.log("total score: ", total);
+
+		if (total >= this.state.pointsToWin) {
+			this.setState((prevState) => ({
+				...prevState,
+				buttonDisabled: true,
+				players: {
+					...prevState.players,
+					[activePlayer]: {
+						...prevState.players[activePlayer],
+						roundScore: 0,
+						isWinner: true
+					}
+				}
+			}))
+		}
+		else {
+			this.setState((prevState) => ({
+				...prevState,
+				activePlayer: prevState.activePlayer === 'player1' ? 'player2' : 'player1',
+				idlePlayer: prevState.idlePlayer === 'player1' ? 'player2' : 'player1',
+				players: {
+					...prevState.players,
+					[activePlayer]: {
+						...prevState.players[activePlayer],
+						gameScore: total,
+						roundScore: 0,
+						combinedScore: 0,
+						isActive: false,
+					},
+					[prevState.idlePlayer]: {
+						...prevState[prevState.idlePlayer],
+						isActive: true
+					}
+				}
+			
+			}))	
+		}
+	}
+
 }
 
 export default DiceGame;
