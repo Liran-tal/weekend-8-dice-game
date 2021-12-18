@@ -9,7 +9,7 @@ class DiceGame extends React.Component {
 	constructor () {
 		super();
 		this.state = {
-			pointsToWin: 100,
+			pointsToWin: 20,
 			dices: [null, null],
 			buttonDisabled: false,
 			activePlayer: 'player1',
@@ -42,18 +42,20 @@ class DiceGame extends React.Component {
 	render () {
 		console.log("Hello from Dice Game");
 		return (
-			<div className="">
-				<Player
-					data={this.state.players.player1}
-				/>
-				<GameBoard
-					dices={this.state.dices}
-					pointsToWin={this.state.pointsToWin}
-					onClick={this.onClick}
-				/>
-				<Player
-					data={this.state.players.player2}
-				/>
+			<div className="game-background"> 
+				<div className="game-container">
+					<Player
+						data={this.state.players.player1}
+					/>
+					<GameBoard
+						dices={this.state.dices}
+						pointsToWin={this.state.pointsToWin}
+						onClick={this.onClick}
+					/>
+					<Player
+						data={this.state.players.player2}
+					/>
+				</div>
 			</div>
 		);
 	}
