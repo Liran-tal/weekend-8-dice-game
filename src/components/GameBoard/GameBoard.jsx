@@ -7,12 +7,12 @@ class GameBoard extends React.Component {
 	}
 
 	diceImages = [
-		"../../assets/images/dice/dice-1.png",
-		"../../assets/images/dice/dice-2.png",
-		"../../assets/images/dice/dice-3.png",
-		"../../assets/images/dice/dice-4.png",
-		"../../assets/images/dice/dice-5.png",
-		"../../assets/images/dice/dice-6.png",
+		// "../../assets/images/dice/dice-1.png",
+		// "../../assets/images/dice/dice-2.png",
+		// "../../assets/images/dice/dice-3.png",
+		// "../../assets/images/dice/dice-4.png",
+		// "../../assets/images/dice/dice-5.png",
+		// "../../assets/images/dice/dice-6.png",
 	]
 	render () {
 		console.log("gameboard props: ", this.props);
