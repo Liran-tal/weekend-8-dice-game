@@ -24,15 +24,15 @@ class GameBoard extends React.Component {
 	render () {
 		console.log("gameboard props: ", this.props);
 		return (
-			<section className="game-board-container">
+			<section className="game-board-container flex-col">
 				<button 
-					className="game-board-new-game-btn game-board-button"
+					className="game-board-new-game-btn game-board-button flex-row"
 					onClick={this.props.onClick}
 					value="new"
 				>
-					&#x2022; Start New Game &#x2022;
+					<span>&#x2022;</span> Start New Game <span>&#x2022;</span>
 				</button>
-				<div className="game-board-dices-wrapper">
+				<div className="game-board-dices-wrapper flex-row">
 					{this.props.dices[0] && <img 
 						className="game-board-dice"
 						src={diceImages[this.props.dices[0]]} 
@@ -44,28 +44,30 @@ class GameBoard extends React.Component {
 						alt="Score on dice"
 					/>}
 				</div>
-				<div className="game-board-func-btns-wrapper">
+				<div className="game-board-func-btns-wrapper flex-col">
 					<button 
-						className="game-board-roll-btn game-board-button"
+						className="game-board-roll-btn game-board-button flex-row"
 						onClick={this.props.onClick}
 						value="roll"
+						disabled={this.props.buttonDisabled}
 					>
-						&#x2022; Roll Dices &#x2022;
+						<span>&#x2022;</span> Roll Dices <span>&#x2022;</span>
 					</button>
 					<button 
-						className="game-board-hold-btn game-board-button"
+						className="game-board-hold-btn game-board-button flex-row"
 						onClick={this.props.onClick}
 						value="hold"
+						disabled={this.props.buttonDisabled}
 					>
-						&#x2022; Hold Your Turn &#x2022;
+						<span>&#x2022;</span> Hold Your Turn <span>&#x2022;</span>
 					</button>
 				</div>
-				<div className="game-board-points-to-win-wrapper">
-					<div className="game-board-points-to-win-text">
-						{this.props.pointsToWin}
-					</div>
+				<div className="game-board-points-to-win-wrapper flex-col">
 					<div className="game-board-points-to-win-header">
 						Points to Win
+					</div>
+					<div className="game-board-points-to-win-text">
+						{this.props.pointsToWin}
 					</div>
 				</div>
 			</section>

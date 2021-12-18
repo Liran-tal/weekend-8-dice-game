@@ -1,10 +1,25 @@
-/* .player-container{
+.flex-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
 
-} */
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
 
-/* .player-name{
+.player-container {
+	width: 20%;
+	height: 100%;
+}
 
-} */
+.player-name{
+	font-size: larger;
+}
 
 /* .player-active {
 
@@ -14,27 +29,31 @@
 
 } */
 
-/* .player-game-score-wrapper {
-	
-} */
+.player-game-score-wrapper {
+	width: 100%;	
+}
 
-/* .player-game-score-header {
+.player-game-score-header {
+	margin: 10% 0;
+}
 
-} */
+.player-game-score,
+.player-round-score{
+	width: 80%;
+	padding: 10%;
+	text-align: center;
+	border: 2px solid #fea;
+}
 
-/* .player-game-score{
+.player-round-score-wrapper {
+	width: 100%;	
+}
 
-} */
+.player-round-score-header {
+	font-size: 2.5rem;
+	margin: 10% 0;
+}
 
-/* .player-round-score-wrapper {
-	
-} */
-
-/* .player-round-score-header {
-
-} */
-
-/* .player-round-score{
-
-} */
-
+.player-round-score{
+	/* font-size: smaller; */
+}

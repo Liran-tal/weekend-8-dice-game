@@ -28,8 +28,7 @@ class Player extends React.Component {
 	render () {
 		console.log("player props: ", this.props);
 		return (
-			<section className="player-container">
-				hello from player
+			<section className="player-container flex-col">
 				<div 
 					className="player-name" 
 					style={
@@ -41,7 +40,7 @@ class Player extends React.Component {
 				<div className={this.playerStatus("style")}>
 					{this.playerStatus("text")}
 				</div>
-				<div className="player-game-score-wrapper">
+				<div className="player-game-score-wrapper flex-col">
 					<div className="player-game-score-header">
 						SCORE
 					</div>
@@ -54,7 +53,7 @@ class Player extends React.Component {
 						{`${this.props.data.gameScore} \n\n [${this.props.data.combinedScore}]`}
 					</div>
 				</div>
-				<div className="player-round-score-wrapper">
+				<div className="player-round-score-wrapper flex-col">
 					<div className="player-round-score-header">
 						ROUND SCORE
 					</div>
@@ -63,9 +62,9 @@ class Player extends React.Component {
 						style={
 							{backgroundColor: this.props.data.playerColor}
 						}
-						>
-					</div>
+					>
 						{this.props.data.roundScore}
+					</div>
 				</div>
 			</section>
 		);

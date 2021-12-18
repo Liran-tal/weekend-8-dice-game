@@ -9,6 +9,7 @@ class DiceGame extends React.Component {
 	constructor () {
 		super();
 		this.state = {
+			gameOver: false,
 			pointsToWin: 20,
 			dices: [null, null],
 			buttonDisabled: false,
@@ -51,6 +52,7 @@ class DiceGame extends React.Component {
 						dices={this.state.dices}
 						pointsToWin={this.state.pointsToWin}
 						onClick={this.onClick}
+						buttonDisabled={this.state.buttonDisabled}
 					/>
 					<Player
 						data={this.state.players.player2}
@@ -149,13 +151,23 @@ class DiceGame extends React.Component {
 		if (total >= this.state.pointsToWin) {
 			this.setState((prevState) => ({
 				...prevState,
+				gameOver: true,
 				buttonDisabled: true,
 				players: {
 					...prevState.players,
 					[activePlayer]: {
 						...prevState.players[activePlayer],
 						roundScore: 0,
-						isWinner: true
+						combinedScore: 0,
+						isWinner: true,
+						isActive: false
+					},
+					[this.state.idlePlayer]: {
+						...prevState.players[this.state.idlePlayer],
+						roundScore: 0,
+						combinedScore: 0,
+						isWinner: false,
+						isActive: false
 					}
 				}
 			}))
