@@ -26,7 +26,7 @@ class Player extends React.Component {
 	}
 
 	render () {
-		console.log("player props: ", props);
+		console.log("player props: ", this.props);
 		return (
 			<section className="player-container">
 				hello from player

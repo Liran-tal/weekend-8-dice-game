@@ -15,7 +15,7 @@ class GameBoard extends React.Component {
 		"../../assets/images/dice/dice-6.png",
 	]
 	render () {
-		console.log("gameboard props: ", props);
+		console.log("gameboard props: ", this.props);
 		return (
 			<section className="game-board-container">
 				Hello from game board
