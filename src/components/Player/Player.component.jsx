@@ -1,5 +1,6 @@
 import React from "react";
 import './Player.component.css';
+import './styles/DiceGameMobile.css';
 
 class Player extends React.Component {
 	constructor (props) {

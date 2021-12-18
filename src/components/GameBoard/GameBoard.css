@@ -15,17 +15,15 @@
 .game-board-container {
 	width: 40%;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
+	font-size: 1em;
 }
 
 .game-board-button {
-	width: 80%;
-	padding: 5%;
-	margin: 5% 0;
+	width: 60%;
+	padding: 3%;
+	margin: 3% 0;
 	cursor: pointer;
+	font-size: smaller;
 	border-radius: 15px;
 	border-color: #7c7c7c;
 	color: rgb(19, 19, 19);
@@ -40,21 +38,16 @@
 }
 
 .game-board-dices-wrapper {
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+	width: 80%;
 }
 
 .game-board-dice {
-	width: 30%;	
+	width: 20%;	
 	border-radius: 10px;
 }
 
 .game-board-func-btns-wrapper {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
 }
 
 .game-board-hold-btn {
@@ -71,18 +64,18 @@
 .game-board-points-to-win-wrapper {
 	width: 100%;
 	text-align: center;
-	font-size: 3.6rem;
+	font-size: 2.5em;
 }
 
 
 .game-board-points-to-win-header {
-	margin: 5% 0;
+	margin: 3% 0;
 }
 
 .game-board-points-to-win-text {
 	width: 60%;
-	margin-bottom: 7.5%;
-	padding: 5%;
+	margin-bottom: 5%;
+	padding: 3%;
 	border: 2px solid #fea;
 }
 

@@ -11,7 +11,7 @@ class DiceGame extends React.Component {
 		this.state = {
 			gameOver: false,
 			pointsToWin: 20,
-			dices: [null, null],
+			dices: [4, 4],
 			buttonDisabled: false,
 			activePlayer: 'player1',
 			idlePlayer: 'player2',
@@ -81,8 +81,9 @@ class DiceGame extends React.Component {
 
 	startNewGame = () => {
 		this.setState((prevState) => ({
-			dices: [null, null],
+			dices: [4, 4],
 			gameOver: false,
+			buttonDisabled: false,
 			
 			players: {
 				...prevState.players,
